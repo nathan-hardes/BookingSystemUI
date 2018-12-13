@@ -1,4 +1,4 @@
-# Booking System (Web API)
+# Booking System (UI)
 A system used to book spaces for a given period of time
 
 ## Getting Started
