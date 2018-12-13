@@ -1,0 +1,80 @@
+
+<mat-toolbar color="primary">Make a booking</mat-toolbar>
+
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <div>
+      <mat-form-field>
+        <input matInput type="text" formControlName="name" placeholder="Name of booking" />
+
+        <mat-error>
+          Name is blank or invalid
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="start" formControlName="start" placeholder="Starting date">
+
+        <mat-error>
+          Starting date is invalid
+        </mat-error>
+
+        <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+        <mat-datepicker #start></mat-datepicker>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <input [ngxTimepicker]="startTime" formControlName="startTime" placeholder="Starting time" aria-label="Starting time" readonly>
+
+      <mat-error>
+        Starting time is invalid
+      </mat-error>
+
+      <ngx-material-timepicker #startTime></ngx-material-timepicker>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="end" formControlName="end" placeholder="Ending date">
+
+        <mat-error>
+          End date is invalid
+        </mat-error>
+
+        <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+        <mat-datepicker #end></mat-datepicker>  
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <input [ngxTimepicker]="endTime" formControlName="endTime" placeholder="Ending time" aria-label="Ending time" readonly>
+      
+      <mat-error>
+        Ending time is invalid
+      </mat-error>
+
+      <ngx-material-timepicker #endTime></ngx-material-timepicker>
+    </div>
+    
+    <div>
+      <mat-form-field>
+        <mat-select formControlName="space" placeholder="Space">
+          <mat-option *ngFor="let space of spaces" [value]="space">
+            {{ space.name }}
+          </mat-option>
+        </mat-select>
+
+        <mat-error>
+          A space must be selected
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div>
+        <button mat-button type="submit" [disabled]="bookingForm.invalid">Ok</button>
+    </div>
+  </mat-card>
+</form>

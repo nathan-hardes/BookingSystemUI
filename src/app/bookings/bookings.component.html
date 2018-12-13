@@ -1,0 +1,15 @@
+<app-booking (bookingMade)="update($event)"></app-booking>
+
+<mat-toolbar color="primary">Today's Bookings</mat-toolbar>
+
+<mat-card *ngFor="let booking of bookings">
+  <h1>
+    {{ booking.name }}
+  </h1>
+  <div>
+    {{ booking.start }} - {{ booking.end }}
+  </div>
+  <div>
+    {{ booking.space?.name }}
+  </div>
+</mat-card>

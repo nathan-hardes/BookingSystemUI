@@ -1,0 +1,6 @@
+<div *ngIf="messageService.messages.length">
+    <mat-toolbar color="warn">Messages</mat-toolbar>
+    <mat-card *ngFor="let message of messageService.messages">
+        <div>{{ message }}</div>
+    </mat-card>
+</div>
