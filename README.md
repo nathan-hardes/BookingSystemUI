@@ -1,27 +1,65 @@
-# BookingSystemUi
+# Booking System (Web API)
+A system used to book spaces for a given period of time
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+## Getting Started
+The application is split into 2 parts
+ - BookingSystem is the web api and core program structure
+ - booking-system-ui is the web front end for the application
 
-## Development server
+ To get, develop and test the web api (and core structure) please follow these steps
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ [Steps]
 
-## Code scaffolding
+ To get, develop and test the application front end, please follow these steps
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ [Steps]
 
-## Build
+### Prerequisites
+ - Microsoft Visual Studio 2017
+ - Visual Studio Code
+ - Node.js (>=10.14.2)
+ - Angular CLI (7.1.2)
+ - Postman
+ - newman
+ - Docker
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ To install newman use npm command: npm install -g newman
 
-## Running unit tests
+## Running the tests
+ - Unit Tests:
+ These are written with standard MS Test. To run these, open the solution in Visual Studio and choose Test -> Run -> All Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ - Api Endpoint Tests:
+ These are written in Postman. To run, start the web api and execute the endpoint-tests.bat file. This will run newman.
+ Some tests may fail on first execution, subsequent executions will be fine.
 
-## Running end-to-end tests
+## Deployment
+At present there are only manual deployments for this but multiple options.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. Running within IDE
+ - Open the web api in Visual Studio 2017 and run / debug as normal (ensuring the BookingSystem.WebApi is the default project)
+ - Open the ui in Visual Studio Code and run with npm start
 
-## Further help
+2. Running within docker
+ - Open the web api in Visual Studio 2017 and run / debug as normal (ensuring the BookingSystem.WebApi is the default project)
+ - Open the command line and navigate to the root folder of the Angular project
+ - Execute the LocalContainer.bat file (this will build and run the front end as a docker image)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Built With
+ - .NET Core
+ - Angular
+
+## TODO's
+1. Abstract Space inherited from "Bookable". This is to enable the booking system to be flexible so as to be able to book anything, not just meeting rooms
+2. Split the Booking controller. To start with ideally to separate Command and Query controllers.
+3. Tests against the web api controllers and presenters
+4. Prettier angular booking form
+5. Calendar controls
+6. Styling on time controls
+7. Date/time formats
+
+## Author(s)
+* **Nathan Hardes**
+
+## Acknowledgments
+* My Wife... for putting up with me, how she does it I'll never know
